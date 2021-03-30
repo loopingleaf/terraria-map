@@ -3,7 +3,7 @@
 #pragma once
 
 #include <memory>
-#include "SFML/Graphics.h"
+//#include "SFML/Graphics.h"
 
 enum GroundType
 {

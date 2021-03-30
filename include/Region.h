@@ -24,10 +24,20 @@ public:
 
 	}
 
+	int getWidth() const
+	{
+		return m_width;
+	}
+
+	int getHeight() const
+	{
+		return m_height;
+	}
+
 private:
 	int m_width;
 	int m_height;
-	std::vector<std::vector<std::shared_ptr<Tile>>> m_tiles;
+	std::vector<std::vector<std::shared_ptr<Tile>>> m_tiles = std::vector<std::vector<std::shared_ptr<Tile>>>();
 };
 
 #endif

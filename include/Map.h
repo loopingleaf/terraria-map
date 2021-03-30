@@ -40,17 +40,18 @@ public:
 	}
 
 private:
-	/// The number of region columns in m_regions
+	/// Number of region columns in m_regions
 	int m_width;
 
-	/// The number of region rows in m_regions
+	/// Number of region rows in m_regions
 	int m_height;
 
-	/// The size of each regions, in number of tiles
+	/// Size of each regions, in number of tiles
 	int m_regionSize;
 
-	///
-	std::vector<std::vector<std::shared_ptr<Region>>> m_regions;
+	/// List of region in the map.
+	/// m_regions[column][row] (column being the horizontal index and row the vertical index)
+	std::vector<std::vector<std::shared_ptr<Region>>> m_regions = std::vector<std::vector<std::shared_ptr<Region>>>();
 };
 
 #endif

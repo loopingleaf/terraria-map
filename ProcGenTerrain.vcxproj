@@ -163,7 +163,7 @@
     <ClCompile Include="src\noiseutils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\GroundBuilder.h" />
+    <ClInclude Include="include\SurfaceBuilder.h" />
     <ClInclude Include="include\Map.h" />
     <ClInclude Include="include\noiseutils.h" />
     <ClInclude Include="include\noise\basictypes.h" />
@@ -210,6 +210,7 @@
     <ClInclude Include="include\noise\noise.h" />
     <ClInclude Include="include\noise\noisegen.h" />
     <ClInclude Include="include\noise\vectortable.h" />
+    <ClInclude Include="include\Region.h" />
     <ClInclude Include="include\ReptulessPerlin.h" />
     <ClInclude Include="include\Tile.h" />
   </ItemGroup>
