@@ -15,10 +15,29 @@ enum GroundType
 class Tile
 {
 public:
-	explicit Tile(const GroundType &type)
+	explicit Tile(GroundType type)
 		: m_type(type)
 	{}
 
+	std::string toString()
+	{
+		switch (m_type)
+		{
+		case GroundType::None:
+			return ".";
+		case GroundType::Dirt:
+			return  "x";
+		case GroundType::Rock:
+			return "X";
+		default:
+			return " ";
+		}
+	}
+
+	GroundType& getType()
+	{
+		return m_type;
+	}
 
 private:
 	GroundType m_type;
