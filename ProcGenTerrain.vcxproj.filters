@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\ReptulessPerlin.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="include\noise\model\cylinder.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>

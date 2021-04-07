@@ -211,7 +211,6 @@
     <ClInclude Include="include\noise\noisegen.h" />
     <ClInclude Include="include\noise\vectortable.h" />
     <ClInclude Include="include\Region.h" />
-    <ClInclude Include="include\ReptulessPerlin.h" />
     <ClInclude Include="include\Tile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
