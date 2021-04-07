@@ -1,22 +1,24 @@
-#ifndef MAP_H
-#define MAP_H
 #pragma once
 
 #include <memory>
+#include <string>
 #include <vector>
 #include "Region.h"
 
 class Map
 {
 public:
+
+	/// <summary>
+	/// Creates a map. The regions may be built later.
+	/// </summary>
+	/// <param name="width">Number of regions in latitude</param>
+	/// <param name="height">Number of regions in longitude</param>
+	/// <param name="regionSize">Number of tiles in a region row. Regions are square for now</param>
 	Map(const int& width, const int& height, const int& regionSize = 32)
 		: m_width(width), m_height(height), m_regionSize(regionSize)
 	{
-		m_regions.resize(regionSize);
-		for(auto &line : m_regions)
-		{
-			line.resize(regionSize);
-		}
+		m_regions.resize(m_width * m_height);
 	}
 
 	int getWidth() const
@@ -31,12 +33,31 @@ public:
 
 	std::shared_ptr<Region> getRegion(const int& x, const int& y)
 	{
-		return m_regions[x][y];
+		//std::cout << m_regions[x * m_width + y]->toString() << std::endl;
+		return m_regions[x * m_height + y];
 	}
 
 	void addRegion(const Region& region, const int& x, const int& y)
 	{
-		m_regions[x][y] = std::make_shared<Region>(region);
+		std::cout << x << "; " << y << std::endl;
+		m_regions[x * m_height + y] = std::make_shared<Region>(region);
+	}
+
+	/// <summary>
+	/// Helped me to debug, not very interesting or understandable output.
+	/// </summary>
+	std::string toString()
+	{
+		std::string retval;
+		for(int i = 0; i < m_height; ++i)
+		{
+			for(int j = 0; j < m_width; ++j)
+			{
+				retval += getRegion(j, i)->toString();
+			}
+			retval += "\n";
+		}
+		return retval;
 	}
 
 private:
@@ -51,7 +72,5 @@ private:
 
 	/// List of region in the map.
 	/// m_regions[column][row] (column being the horizontal index and row the vertical index)
-	std::vector<std::vector<std::shared_ptr<Region>>> m_regions = std::vector<std::vector<std::shared_ptr<Region>>>();
+	std::vector<std::shared_ptr<Region>> m_regions;
 };
-
-#endif
