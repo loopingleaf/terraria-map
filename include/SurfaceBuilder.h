@@ -4,15 +4,14 @@
 
 #include <iostream>
 #include <memory>
+#include <algorithm>
 
 #include "noise/noise.h"
 #include "Region.h"
 
 namespace ns = noise;
 
-const double MIN_NOISE_VALUE = -1.;
-
-/// Builds the surface.
+/// Builds the surface in a region.
 class SurfaceBuilder
 {
 public:
@@ -27,14 +26,20 @@ public:
 		m_noiseLine->SetOctaveCount(octaves);
 	}*/
 
-	explicit SurfaceBuilder(std::shared_ptr<ns::model::Line>& noiseLine, const double& step,
+	explicit SurfaceBuilder(std::shared_ptr<ns::module::Perlin>& noiseModule, const double& step,
 		const double& surfaceIndex = 0.)
-		: m_noiseLine(noiseLine), m_step(step), m_surfaceOffset(surfaceIndex)
-	{}
+		: m_noiseModule(noiseModule), m_step(step), m_surfaceOffset(surfaceIndex)
+	{
+		m_noiseLine.SetAttenuate(false);
+		m_noiseLine.SetModule(*m_noiseModule);
+	}
 
 	SurfaceBuilder(const SurfaceBuilder& sb)
-		: m_noiseLine(sb.m_noiseLine), m_step(sb.m_step), m_surfaceOffset(sb.m_surfaceOffset)
-	{}
+		: m_noiseModule(sb.m_noiseModule), m_step(sb.m_step), m_surfaceOffset(sb.m_surfaceOffset)
+	{
+		m_noiseLine.SetAttenuate(sb.m_noiseLine.GetAttenuate());
+		m_noiseLine.SetModule(*m_noiseModule);
+	}
 	
 	/*SurfaceBuilder(SurfaceBuilder&& sb) noexcept
 	{
@@ -63,32 +68,54 @@ public:
 
 	~SurfaceBuilder() = default;
 #pragma endregion
-	
+
+	/// <summary>
 	/// Build the tiles in the given region using the Perlin noise module
 	/// at the given coordinates
-	/// 
-	/// @param region The region to build
-	/// @param x The x coords starting point of the Perlin noise
+	/// </summary>
+	/// <param name="region">The region to build</param>
+	/// <param name="x"> The x coords starting point of the Perlin noise</param>
 	void build(Region& region, const int& x)
 	{
-		m_noiseLine->SetStartPoint(x, 0., 0.);
-		m_noiseLine->SetEndPoint(x + region.getWidth(), 0., 0.);
-		for(auto i = 0; i < region.getWidth(); ++i)
+		// We set the segment of the m_noiseLine
+		const auto startPoint = x * m_step;
+		const auto endPoint = (static_cast<double>(x) + region.getWidth()) * m_step;
+		m_noiseLine.SetStartPoint(startPoint, 0., 0.);
+		m_noiseLine.SetEndPoint(endPoint, 0., 0.);
+#ifdef _DEBUG
+		std::cout << "Building a surface inside a region..." << std::endl;
+#endif
+
+		for(int i = 0; i < region.getWidth(); ++i)
 		{
-			const int column = x + i;
-			const double surfaceIndex = (m_noiseLine->GetValue(static_cast<double>(column) * m_step) - MIN_NOISE_VALUE) / 2;
-			const int stopAt = static_cast<int>(std::round(region.getHeight() * surfaceIndex));
-			std::cout << stopAt << "; ";
-			std::cout << std::endl;
-			/*for(auto j = region.getHeight() - 1; j <= ; --j)
+			const double perlinValue = m_noiseLine.GetValue(static_cast<double>(i) / region.getWidth());
+			const double elevation = region.getHeight() * ((perlinValue + 1) / 2);
+			const int clampedElevation = std::clamp(static_cast<int>(elevation), 0, region.getHeight());
+			/*if(clampedElevation == 0)
+				continue;*/
+
+			for(int j = 0; j < region.getHeight(); ++j)
 			{
-				//std::cout << m_noiseLine->GetValue(x + i * 0.001, y + 0.001, 0.001) << "; ";
-			}*/
+				if(j >= region.getHeight() - clampedElevation)
+				{
+					std::shared_ptr<Tile> newTile = std::make_shared<Tile>(GroundType::Dirt);
+					region.addTile(newTile, i, j);
+				}
+				else
+				{
+					std::shared_ptr<Tile> newTile = std::make_shared<Tile>(GroundType::None);
+					region.addTile(newTile, i, j);
+				}
+			}
 		}
+#ifdef _DEBUG
+		std::cout << region.toString() << std::endl;
+#endif
 	}
 
 private:
-	std::shared_ptr<ns::model::Line> m_noiseLine;
+	std::shared_ptr<ns::module::Module> m_noiseModule;
+	ns::model::Line m_noiseLine;
 	double m_step;
 	double m_surfaceOffset;
 };
