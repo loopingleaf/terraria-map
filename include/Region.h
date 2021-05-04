@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-#include <memory>
 #include "Tile.h"
 
 class Region
@@ -11,6 +10,10 @@ public:
 		: m_width(width), m_height(height)
 	{
 		m_tiles.resize(m_width * m_height);
+		/*for (int i = 0; i < m_tiles.size(); ++i)
+		{
+			addTile()
+		}*/
 	}
 
 	/*void addTile(const Tile& tile, const int& x, const int& y)
@@ -18,14 +21,14 @@ public:
 		m_tiles[x + (y * m_height)] = std::make_shared<Tile>(tile);
 	}*/
 
-	void addTile(std::shared_ptr<Tile>& tile, const int& x, const int& y)
+	void addTile(Tile& tile, const int& x, const int& y)
 	{
-		m_tiles[x * m_height + y] = std::move(tile);
+		m_tiles[x * m_height + y] = tile;
 	}
 
 	Tile& getTile(const int& x, const int& y)
 	{
-		return *m_tiles[x * m_height + y];
+		return m_tiles[x * m_height + y];
 	}
 
 	int getWidth() const
@@ -38,22 +41,8 @@ public:
 		return m_height;
 	}
 
-	std::string toString()
-	{
-		std::string retval;
-		for(int i = 0; i < m_height; ++i)
-		{
-			for(int j = 0; j < m_width; ++j)
-			{
-				retval += getTile(j, i).toString();
-			}
-			retval += "\n";
-		}
-		return retval;
-	}
-
 private:
 	int m_width;
 	int m_height;
-	std::vector<std::shared_ptr<Tile>> m_tiles;
+	std::vector<Tile> m_tiles;
 };

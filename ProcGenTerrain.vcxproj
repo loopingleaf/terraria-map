@@ -89,12 +89,14 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libnoise.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>lib;lib\sfml;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libnoise.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -106,14 +108,16 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libnoise.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>lib;lib\sfml;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libnoise.lib;sfml-graphics.lib;sfml-window.lib;sfml-system.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -123,12 +127,14 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libnoise.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>lib;lib\sfml;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libnoise.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -140,14 +146,16 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libnoise.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>lib;lib\sfml;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libnoise.lib;sfml-graphics.lib;sfml-window.lib;sfml-system.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -163,6 +171,110 @@
     <ClCompile Include="src\noiseutils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\CaveBuilder.h" />
+    <ClInclude Include="include\DiamondSquare.h" />
+    <ClInclude Include="include\Ground.h" />
+    <ClInclude Include="include\Noise2D.h" />
+    <ClInclude Include="include\RegionBuilder.h" />
+    <ClInclude Include="include\RessourceManager.h" />
+    <ClInclude Include="include\sfml\Audio.hpp" />
+    <ClInclude Include="include\sfml\Audio\AlResource.hpp" />
+    <ClInclude Include="include\sfml\Audio\Export.hpp" />
+    <ClInclude Include="include\sfml\Audio\InputSoundFile.hpp" />
+    <ClInclude Include="include\sfml\Audio\Listener.hpp" />
+    <ClInclude Include="include\sfml\Audio\Music.hpp" />
+    <ClInclude Include="include\sfml\Audio\OutputSoundFile.hpp" />
+    <ClInclude Include="include\sfml\Audio\Sound.hpp" />
+    <ClInclude Include="include\sfml\Audio\SoundBuffer.hpp" />
+    <ClInclude Include="include\sfml\Audio\SoundBufferRecorder.hpp" />
+    <ClInclude Include="include\sfml\Audio\SoundFileFactory.hpp" />
+    <ClInclude Include="include\sfml\Audio\SoundFileReader.hpp" />
+    <ClInclude Include="include\sfml\Audio\SoundFileWriter.hpp" />
+    <ClInclude Include="include\sfml\Audio\SoundRecorder.hpp" />
+    <ClInclude Include="include\sfml\Audio\SoundSource.hpp" />
+    <ClInclude Include="include\sfml\Audio\SoundStream.hpp" />
+    <ClInclude Include="include\sfml\Config.hpp" />
+    <ClInclude Include="include\sfml\GpuPreference.hpp" />
+    <ClInclude Include="include\sfml\Graphics.hpp" />
+    <ClInclude Include="include\sfml\Graphics\BlendMode.hpp" />
+    <ClInclude Include="include\sfml\Graphics\CircleShape.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Color.hpp" />
+    <ClInclude Include="include\sfml\Graphics\ConvexShape.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Drawable.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Export.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Font.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Glsl.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Glyph.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Image.hpp" />
+    <ClInclude Include="include\sfml\Graphics\PrimitiveType.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Rect.hpp" />
+    <ClInclude Include="include\sfml\Graphics\RectangleShape.hpp" />
+    <ClInclude Include="include\sfml\Graphics\RenderStates.hpp" />
+    <ClInclude Include="include\sfml\Graphics\RenderTarget.hpp" />
+    <ClInclude Include="include\sfml\Graphics\RenderTexture.hpp" />
+    <ClInclude Include="include\sfml\Graphics\RenderWindow.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Shader.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Shape.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Sprite.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Text.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Texture.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Transform.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Transformable.hpp" />
+    <ClInclude Include="include\sfml\Graphics\Vertex.hpp" />
+    <ClInclude Include="include\sfml\Graphics\VertexArray.hpp" />
+    <ClInclude Include="include\sfml\Graphics\VertexBuffer.hpp" />
+    <ClInclude Include="include\sfml\Graphics\View.hpp" />
+    <ClInclude Include="include\sfml\Main.hpp" />
+    <ClInclude Include="include\sfml\Network.hpp" />
+    <ClInclude Include="include\sfml\Network\Export.hpp" />
+    <ClInclude Include="include\sfml\Network\Ftp.hpp" />
+    <ClInclude Include="include\sfml\Network\Http.hpp" />
+    <ClInclude Include="include\sfml\Network\IpAddress.hpp" />
+    <ClInclude Include="include\sfml\Network\Packet.hpp" />
+    <ClInclude Include="include\sfml\Network\Socket.hpp" />
+    <ClInclude Include="include\sfml\Network\SocketHandle.hpp" />
+    <ClInclude Include="include\sfml\Network\SocketSelector.hpp" />
+    <ClInclude Include="include\sfml\Network\TcpListener.hpp" />
+    <ClInclude Include="include\sfml\Network\TcpSocket.hpp" />
+    <ClInclude Include="include\sfml\Network\UdpSocket.hpp" />
+    <ClInclude Include="include\sfml\OpenGL.hpp" />
+    <ClInclude Include="include\sfml\System.hpp" />
+    <ClInclude Include="include\sfml\System\Clock.hpp" />
+    <ClInclude Include="include\sfml\System\Err.hpp" />
+    <ClInclude Include="include\sfml\System\Export.hpp" />
+    <ClInclude Include="include\sfml\System\FileInputStream.hpp" />
+    <ClInclude Include="include\sfml\System\InputStream.hpp" />
+    <ClInclude Include="include\sfml\System\Lock.hpp" />
+    <ClInclude Include="include\sfml\System\MemoryInputStream.hpp" />
+    <ClInclude Include="include\sfml\System\Mutex.hpp" />
+    <ClInclude Include="include\sfml\System\NativeActivity.hpp" />
+    <ClInclude Include="include\sfml\System\NonCopyable.hpp" />
+    <ClInclude Include="include\sfml\System\Sleep.hpp" />
+    <ClInclude Include="include\sfml\System\String.hpp" />
+    <ClInclude Include="include\sfml\System\Thread.hpp" />
+    <ClInclude Include="include\sfml\System\ThreadLocal.hpp" />
+    <ClInclude Include="include\sfml\System\ThreadLocalPtr.hpp" />
+    <ClInclude Include="include\sfml\System\Time.hpp" />
+    <ClInclude Include="include\sfml\System\Utf.hpp" />
+    <ClInclude Include="include\sfml\System\Vector2.hpp" />
+    <ClInclude Include="include\sfml\System\Vector3.hpp" />
+    <ClInclude Include="include\sfml\Window.hpp" />
+    <ClInclude Include="include\sfml\Window\Clipboard.hpp" />
+    <ClInclude Include="include\sfml\Window\Context.hpp" />
+    <ClInclude Include="include\sfml\Window\ContextSettings.hpp" />
+    <ClInclude Include="include\sfml\Window\Cursor.hpp" />
+    <ClInclude Include="include\sfml\Window\Event.hpp" />
+    <ClInclude Include="include\sfml\Window\Export.hpp" />
+    <ClInclude Include="include\sfml\Window\GlResource.hpp" />
+    <ClInclude Include="include\sfml\Window\Joystick.hpp" />
+    <ClInclude Include="include\sfml\Window\Keyboard.hpp" />
+    <ClInclude Include="include\sfml\Window\Mouse.hpp" />
+    <ClInclude Include="include\sfml\Window\Sensor.hpp" />
+    <ClInclude Include="include\sfml\Window\Touch.hpp" />
+    <ClInclude Include="include\sfml\Window\VideoMode.hpp" />
+    <ClInclude Include="include\sfml\Window\Window.hpp" />
+    <ClInclude Include="include\sfml\Window\WindowHandle.hpp" />
+    <ClInclude Include="include\sfml\Window\WindowStyle.hpp" />
     <ClInclude Include="include\SurfaceBuilder.h" />
     <ClInclude Include="include\Map.h" />
     <ClInclude Include="include\noiseutils.h" />
@@ -212,6 +324,21 @@
     <ClInclude Include="include\noise\vectortable.h" />
     <ClInclude Include="include\Region.h" />
     <ClInclude Include="include\Tile.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\sfml\Audio\SoundFileFactory.inl" />
+    <None Include="include\sfml\Graphics\Glsl.inl" />
+    <None Include="include\sfml\Graphics\Rect.inl" />
+    <None Include="include\sfml\System\String.inl" />
+    <None Include="include\sfml\System\Thread.inl" />
+    <None Include="include\sfml\System\ThreadLocalPtr.inl" />
+    <None Include="include\sfml\System\Utf.inl" />
+    <None Include="include\sfml\System\Vector2.inl" />
+    <None Include="include\sfml\System\Vector3.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="data\images\ground.png" />
+    <Image Include="data\images\rock.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -43,23 +43,6 @@ public:
 		m_regions[x * m_height + y] = std::make_shared<Region>(region);
 	}
 
-	/// <summary>
-	/// Helped me to debug, not very interesting or understandable output.
-	/// </summary>
-	std::string toString()
-	{
-		std::string retval;
-		for(int i = 0; i < m_height; ++i)
-		{
-			for(int j = 0; j < m_width; ++j)
-			{
-				retval += getRegion(j, i)->toString();
-			}
-			retval += "\n";
-		}
-		return retval;
-	}
-
 private:
 	/// Number of region columns in m_regions
 	int m_width;
