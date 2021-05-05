@@ -66,7 +66,7 @@ public:
 			{
 				if(j >= region.getHeight() - clampedElevation)
 				{
-					Tile groundTile(m_resourceManager->getTexture(Resources::GroundTexture));
+					Tile groundTile(std::move(m_resourceManager->getTexture(Resources::GroundTexture)), i * 8 * 4, j * 8 * 4);
 					region.addTile(groundTile, i, j);
 				}
 			}

@@ -10,7 +10,7 @@ enum class Resources : unsigned int
 
 struct ResourceManager
 {	
-	ResourceManager(std::string resourcesPath)
+	ResourceManager(const std::string& resourcesPath)
 	{
 		m_textures.reserve(2);
 		auto gt = std::make_shared<sf::Texture>();

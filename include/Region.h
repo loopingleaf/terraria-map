@@ -21,7 +21,7 @@ public:
 		m_tiles[x + (y * m_height)] = std::make_shared<Tile>(tile);
 	}*/
 
-	void addTile(Tile& tile, const int& x, const int& y)
+	void addTile(const Tile& tile, const int& x, const int& y)
 	{
 		m_tiles[x * m_height + y] = tile;
 	}

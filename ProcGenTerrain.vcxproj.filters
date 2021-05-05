@@ -468,9 +468,6 @@
     <ClInclude Include="include\sfml\Window.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="include\Ground.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="include\RessourceManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>

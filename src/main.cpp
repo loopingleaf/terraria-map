@@ -108,8 +108,8 @@ int main()
 	//std::cout << map.toString() << std::endl;
 
 
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
+	sf::RenderWindow window(sf::VideoMode(1920, 1080), "SFML works!");
+    /*sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
 	unsigned char minValue = 0;
 	sf::Uint8 maxValue = 255;
@@ -117,14 +117,14 @@ int main()
 			0.5f, 2.f);
 	//perl.setNoiseType(NoiseType::Billow);
 	sf::Uint8* image = new sf::Uint8[200 * 200 * 4];
-	initArray(image, 200, 200);
+	initArray(image, 1920, 1080);
 	perlinToArray(image, perl, 200, 200);
 	sf::Texture texture;
 	if (!texture.create(200, 200))
 		return -1;
 
 	sf::Sprite sprite(texture);
-	texture.update(image);
+	texture.update(image);*/
 	
     while (window.isOpen())
     {
@@ -136,7 +136,14 @@ int main()
         }
 
         window.clear();
-        window.draw(sprite);
+        auto region = map.getRegion(0, 0);
+    	for(int i = 0; i < region->getHeight(); ++i)
+    	{
+    		for(int j = 0; j < region->getWidth(); ++j)
+    		{
+    			window.draw(region->getTile(i, j).getSprite());
+    		}
+    	}
         window.display();
     }
 
