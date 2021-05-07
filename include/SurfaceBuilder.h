@@ -3,6 +3,7 @@
 #include <iostream>
 #include <memory>
 
+#include "GroundTile.h"
 #include "Noise2D.h"
 #include "noise/noise.h"
 #include "RegionBuilder.h"
@@ -42,12 +43,6 @@ public:
 	/// <param name="x"> The x coords starting point of the Perlin noise</param>
 	void build(Region& region, const int& x, const int& y) override
 	{
-		// Deprecated code, using libnoise
-		// We set the segment of the m_noiseLine
-		/*const auto startPoint = x * m_step;
-		const auto endPoint = (static_cast<double>(x) + region.getWidth()) * m_step;
-		m_noiseLine.SetStartPoint(startPoint, 0., 0.);
-		m_noiseLine.SetEndPoint(endPoint, 0., 0.);*/
 #ifdef _DEBUG
 		std::cout << "Building a surface inside a region..." << std::endl;
 #endif
@@ -57,16 +52,12 @@ public:
 		
 		for(int i = 0; i < region.getWidth(); ++i)
 		{
-			// Deprecated code, using libnoise
-			/*const double perlinValue = m_noiseLine.GetValue(static_cast<double>(i) / region.getWidth());
-			const double elevation = region.getHeight() * ((perlinValue + 1) / 2);
-			const int clampedElevation = std::clamp(static_cast<int>(elevation), 0, region.getHeight());*/
 			const int clampedElevation = perlin.getValue1D(static_cast<float>(i * m_step + x * m_step));
 			for(int j = 0; j < region.getHeight(); ++j)
 			{
 				if(j >= region.getHeight() - clampedElevation)
 				{
-					Tile groundTile(std::move(m_resourceManager->getTexture(Resources::GroundTexture)), i * 8 * 4, j * 8 * 4);
+					Tile groundTile = GroundTile(*m_resourceManager, i * DEFAULT_SCALE, j * DEFAULT_SCALE, DEFAULT_SCALE);
 					region.addTile(groundTile, i, j);
 				}
 			}

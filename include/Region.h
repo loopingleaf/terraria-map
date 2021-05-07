@@ -6,6 +6,8 @@
 class Region
 {
 public:
+	Region() = default;
+	
 	explicit Region(const int& width, const int& height)
 		: m_width(width), m_height(height)
 	{

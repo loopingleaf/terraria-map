@@ -168,11 +168,10 @@
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdcpp17</LanguageStandard>
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdcpp17</LanguageStandard>
     </ClCompile>
-    <ClCompile Include="src\noiseutils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\CaveBuilder.h" />
-    <ClInclude Include="include\DiamondSquare.h" />
+    <ClInclude Include="include\GroundTile.h" />
     <ClInclude Include="include\Noise2D.h" />
     <ClInclude Include="include\RegionBuilder.h" />
     <ClInclude Include="include\RessourceManager.h" />
@@ -276,7 +275,6 @@
     <ClInclude Include="include\sfml\Window\WindowStyle.hpp" />
     <ClInclude Include="include\SurfaceBuilder.h" />
     <ClInclude Include="include\Map.h" />
-    <ClInclude Include="include\noiseutils.h" />
     <ClInclude Include="include\noise\basictypes.h" />
     <ClInclude Include="include\noise\exception.h" />
     <ClInclude Include="include\noise\interp.h" />

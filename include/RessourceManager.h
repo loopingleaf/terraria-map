@@ -9,7 +9,7 @@ enum class Resources : unsigned int
 };
 
 struct ResourceManager
-{	
+{
 	ResourceManager(const std::string& resourcesPath)
 	{
 		m_textures.reserve(2);
@@ -21,7 +21,7 @@ struct ResourceManager
 		m_textures.push_back(rt);
 	}
 
-	std::shared_ptr<sf::Texture> getTexture(Resources r)
+	std::shared_ptr<sf::Texture>& getTexture(Resources r)
 	{
 		return m_textures[static_cast<unsigned int>(r)];
 	}

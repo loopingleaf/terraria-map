@@ -108,7 +108,7 @@ int main()
 	//std::cout << map.toString() << std::endl;
 
 
-	sf::RenderWindow window(sf::VideoMode(1920, 1080), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(880, 600), "SFML works!");
     /*sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
 	unsigned char minValue = 0;
@@ -126,28 +126,35 @@ int main()
 	sf::Sprite sprite(texture);
 	texture.update(image);*/
 	
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+	while (window.isOpen())
+	{
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window.close();
+		}
 
-        window.clear();
-        auto region = map.getRegion(0, 0);
-    	for(int i = 0; i < region->getHeight(); ++i)
-    	{
-    		for(int j = 0; j < region->getWidth(); ++j)
-    		{
-    			window.draw(region->getTile(i, j).getSprite());
-    		}
-    	}
-        window.display();
-    }
+		window.clear();
+		for(int i = 0; i < map.getWidth(); ++i)
+		{
+			for(int j = 0; j < map.getHeight(); ++j)
+			{
+				auto region = map.getRegion(0, 0);
+				
+				for(int k = 0; k < region.getWidth(); ++k)
+				{
+					for(int l = 0; l < region.getHeight(); ++l)
+					{
+						window.draw(region.getTile(k, l).getSprite());
+					}
+				}
+			}
+		}
+		window.display();
+	}
 
-    return 0;
+	return 0;
 }
 
 /*int main()

@@ -16,4 +16,7 @@ public:
 
 protected:
 	std::shared_ptr<ResourceManager> m_resourceManager;
+	static const float DEFAULT_SCALE;
 };
+
+const float RegionBuilder::DEFAULT_SCALE = 2.f;

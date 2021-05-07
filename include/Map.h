@@ -1,7 +1,5 @@
 #pragma once
 
-#include <memory>
-#include <string>
 #include <vector>
 #include "Region.h"
 
@@ -31,16 +29,16 @@ public:
 		return  m_height;
 	}
 
-	std::shared_ptr<Region> getRegion(const int& x, const int& y)
+	Region& getRegion(const int& x, const int& y)
 	{
 		//std::cout << m_regions[x * m_width + y]->toString() << std::endl;
 		return m_regions[x * m_height + y];
 	}
 
-	void addRegion(const Region& region, const int& x, const int& y)
+	void addRegion(Region& region, const int& x, const int& y)
 	{
 		std::cout << x << "; " << y << std::endl;
-		m_regions[x * m_height + y] = std::make_shared<Region>(region);
+		m_regions[x * m_height + y] = region;
 	}
 
 private:
@@ -55,5 +53,5 @@ private:
 
 	/// List of region in the map.
 	/// m_regions[column][row] (column being the horizontal index and row the vertical index)
-	std::vector<std::shared_ptr<Region>> m_regions;
+	std::vector<Region> m_regions;
 };
