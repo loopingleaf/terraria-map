@@ -5,9 +5,6 @@
 #include "Map.h"
 #include "SurfaceBuilder.h"
 #include "sfml/Graphics.hpp"
-#include "noise/noise.h"
-
-namespace ns = noise;
 
 static void initArray(sf::Uint8* pixels, int width, int height)
 {
@@ -49,23 +46,11 @@ int main()
 {
 	Noise2D<int> perlin = Noise2D<int>(156112, 0, 16, 1.f, 2,
 			1.f, 3.f);
-	auto line = std::make_shared<ns::model::Line>();
+	//auto line = std::make_shared<ns::model::Line>();
 	std::shared_ptr<ResourceManager> rm = std::make_shared<ResourceManager>("data/images/");
 	SurfaceBuilder sb(std::move(rm), perlin, 0.04);
 	
 	Map map(4, 1);
-	
-	/*sb.build(region, 0);
-	sb.build(region, 1);
-	sb.build(region, 2);
-	sb.build(region, 3);
-	sb.build(region, 4);
-	sb.build(region, 5);
-	sb.build(region, 6);
-	sb.build(region, 7);
-	sb.build(region, 8);
-	sb.build(region, 9);
-	sb.build(region, 10);*/
 
 	Region region1(16, 16);
 	Region region2(16, 16);
@@ -140,7 +125,7 @@ int main()
 		{
 			for(int j = 0; j < map.getHeight(); ++j)
 			{
-				auto region = map.getRegion(0, 0);
+				auto region = map.getRegion(i, j);
 				
 				for(int k = 0; k < region.getWidth(); ++k)
 				{

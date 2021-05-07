@@ -5,11 +5,8 @@
 
 #include "GroundTile.h"
 #include "Noise2D.h"
-#include "noise/noise.h"
 #include "RegionBuilder.h"
 #include "Region.h"
-
-namespace ns = noise;
 
 /// Builds the surface in a region.
 class SurfaceBuilder : public RegionBuilder
@@ -35,13 +32,7 @@ public:
 	}
 #pragma endregion
 
-	/// <summary>
-	/// Build the tiles in the given region using the Perlin noise module
-	/// at the given coordinates.
-	/// </summary>
-	/// <param name="region">The region to build</param>
-	/// <param name="x"> The x coords starting point of the Perlin noise</param>
-	void build(Region& region, const int& x, const int& y) override
+	void build(Region& region, const int& noiseX, const int& noiseY) override
 	{
 #ifdef _DEBUG
 		std::cout << "Building a surface inside a region..." << std::endl;
@@ -52,7 +43,7 @@ public:
 		
 		for(int i = 0; i < region.getWidth(); ++i)
 		{
-			const int clampedElevation = perlin.getValue1D(static_cast<float>(i * m_step + x * m_step));
+			const int clampedElevation = perlin.getValue1D(static_cast<float>(i * m_step + noiseX * m_step));
 			for(int j = 0; j < region.getHeight(); ++j)
 			{
 				if(j >= region.getHeight() - clampedElevation)

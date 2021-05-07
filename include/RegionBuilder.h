@@ -12,7 +12,13 @@ public:
 	
 	virtual ~RegionBuilder() = default;
 
-	virtual void build(Region& region, const int& x, const int& y) = 0;
+	/// <summary>
+	/// Build the tiles in the given region using the noise at the given coordinates.
+	/// </summary>
+	/// <param name="region">The region to build</param>
+	/// <param name="noiseX">The x coords starting point of the noise</param>
+	/// <param name="noiseY">The y coords starting point of the noise</param>
+	virtual void build(Region& region, const int& noiseX, const int& noiseY) = 0;
 
 protected:
 	std::shared_ptr<ResourceManager> m_resourceManager;

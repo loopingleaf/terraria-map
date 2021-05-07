@@ -12,16 +12,7 @@ public:
 		: m_width(width), m_height(height)
 	{
 		m_tiles.resize(m_width * m_height);
-		/*for (int i = 0; i < m_tiles.size(); ++i)
-		{
-			addTile()
-		}*/
 	}
-
-	/*void addTile(const Tile& tile, const int& x, const int& y)
-	{
-		m_tiles[x + (y * m_height)] = std::make_shared<Tile>(tile);
-	}*/
 
 	void addTile(const Tile& tile, const int& x, const int& y)
 	{
@@ -43,8 +34,14 @@ public:
 		return m_height;
 	}
 
+	sf::Vector2f getCoordinates() const
+	{
+		return m_coords;
+	}
+
 private:
 	int m_width;
 	int m_height;
+	sf::Vector2f m_coords;
 	std::vector<Tile> m_tiles;
 };
